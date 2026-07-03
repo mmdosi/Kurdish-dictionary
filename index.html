@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dictionary</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #0f172a;
+  color: white;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+  padding: 15px;
+}
+
+h1 {
+  text-align: center;
+  color: #38bdf8;
+}
+
+.card {
+  background: #111827;
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+input, select, button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+input, select {
+  background: #1f2937;
+  color: white;
+}
+
+button {
+  background: #38bdf8;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0ea5e9;
+}
+
+.result {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #22c55e;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📘 Dictionary</h1>
+
+<div class="card">
+
+<select id="mode">
+  <option value="ku-fa">کوردی → فارسی</option>
+  <option value="fa-ku">فارسی → کوردی</option>
+  <option value="ku-ku">کوردی → کوردی</option>
+</select>
+
+<input id="word" placeholder="کلمه را وارد کنید">
+
+<button onclick="translateWord()">ترجمه</button>
+
+<div id="result" class="result"></div>
+
+</div>
+
+</div>
+
+<script>
+
+// دیتابیس جدا لود می‌شود
+let dict = [];
+
+// لود data.json
+fetch("data.json")
+  .then(res => res.json())
+  .then(data => {
+    dict = data;
+  });
+
+// ترجمه
+function translateWord() {
+  let mode = document.getElementById("mode").value;
+  let word = document.getElementById("word").value.trim();
+
+  let result = "پیدا نشد";
+
+  // کوردی → فارسی
+  if (mode === "ku-fa") {
+    let found = dict.find(i => i.ku === word);
+    if (found) result = found.fa;
+  }
+
+  // فارسی → کوردی
+  else if (mode === "fa-ku") {
+    let found = dict.find(i => i.fa === word);
+    if (found) result = found.ku;
+  }
+
+  // کوردی → کوردی
+  else if (mode === "ku-ku") {
+    let found = dict.find(i => i.ku === word);
+    if (found) {
+      result = `کوردی: ${found.ku}`;
+    } else {
+      result = word;
+    }
+  }
+
+  document.getElementById("result").innerText = result;
+}
+
+</script>
+
+</body>
+</html>
