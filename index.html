@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dictionary</title>
+<title>کوردی - فارسی دیکشنری</title>
 
 <style>
 body {
@@ -22,6 +22,7 @@ body {
 h1 {
   text-align: center;
   color: #38bdf8;
+  margin-bottom: 20px;
 }
 
 .card {
@@ -57,9 +58,10 @@ button:hover {
 }
 
 .result {
-  margin-top: 10px;
+  margin-top: 12px;
   font-size: 18px;
   color: #22c55e;
+  min-height: 20px;
 }
 </style>
 </head>
@@ -68,7 +70,7 @@ button:hover {
 
 <div class="container">
 
-<h1>📘 Dictionary</h1>
+<h1>📘 Dictionary App</h1>
 
 <div class="card">
 
@@ -90,22 +92,28 @@ button:hover {
 
 <script>
 
-// دیتابیس جدا لود می‌شود
 let dict = [];
 
-// لود data.json
+// لود دیتابیس جدا
 fetch("data.json")
   .then(res => res.json())
   .then(data => {
     dict = data;
+  })
+  .catch(err => {
+    console.log("خطا در لود دیتابیس");
   });
 
 // ترجمه
 function translateWord() {
   let mode = document.getElementById("mode").value;
   let word = document.getElementById("word").value.trim();
-
   let result = "پیدا نشد";
+
+  if (!word) {
+    document.getElementById("result").innerText = "";
+    return;
+  }
 
   // کوردی → فارسی
   if (mode === "ku-fa") {
@@ -123,9 +131,7 @@ function translateWord() {
   else if (mode === "ku-ku") {
     let found = dict.find(i => i.ku === word);
     if (found) {
-      result = `کوردی: ${found.ku}`;
-    } else {
-      result = word;
+      result = found.ku_ku;
     }
   }
 
