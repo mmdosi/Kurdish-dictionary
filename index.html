@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
-<title>فەرهەنگی کوردی</title>
+<title>هەنبانەبۆرینه</title>
 <meta name="theme-color" content="#F1E6CE">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,12 +64,13 @@
   .brand svg{ width:38px; height:38px; flex-shrink:0; }
 
   .brand h1{
-    font-family:'Noto Naskh Arabic', serif;
+    font-family:'Vazirmatn', 'Noto Naskh Arabic', serif;
     font-size: 26px;
-    font-weight: 700;
+    font-weight: 800;
     margin:0;
     color: var(--ink);
     letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(184,134,46,0.15);
   }
 
   .brand-sub{
@@ -78,6 +79,7 @@
     color: var(--ink-faint);
     letter-spacing: 2px;
     text-transform: uppercase;
+    font-weight: 500;
   }
 
   /* kilim zigzag divider — the signature element */
@@ -103,13 +105,13 @@
     text-align:center;
     padding: 10px 4px;
     font-size: 13.5px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--ink-soft);
     border-radius: 10px;
     cursor:pointer;
     border:none;
     background: transparent;
-    font-family: inherit;
+    font-family: 'Vazirmatn', 'Noto Naskh Arabic', sans-serif;
     transition: background .2s ease, color .2s ease, transform .15s ease;
     white-space: nowrap;
   }
@@ -134,14 +136,15 @@
     border-radius: 14px;
     border: 1.5px solid var(--line);
     background: var(--card);
-    font-family: inherit;
+    font-family: 'Vazirmatn', 'Noto Naskh Arabic', sans-serif;
     font-size: 16.5px;
+    font-weight: 500;
     color: var(--ink);
     outline: none;
     box-shadow: var(--shadow);
   }
 
-  .search-box input::placeholder{ color: var(--ink-faint); }
+  .search-box input::placeholder{ color: var(--ink-faint); font-weight: 400; }
 
   .search-box input:focus{
     border-color: var(--red);
@@ -159,8 +162,9 @@
 
   .hint{
     margin: 8px 4px 0;
-    font-size: 12px;
+    font-size: 12.5px;
     color: var(--ink-faint);
+    font-weight: 400;
   }
 
   /* ---------- RESULTS ---------- */
@@ -171,7 +175,7 @@
     margin: 18px 4px 10px;
   }
 
-  .count-row span{ font-size: 12.5px; color: var(--ink-faint); }
+  .count-row span{ font-size: 13px; color: var(--ink-faint); font-weight: 500; }
 
   .results{
     display:flex;
@@ -202,24 +206,25 @@
   }
 
   .card .word{
-    font-family:'Noto Naskh Arabic', serif;
+    font-family:'Vazirmatn', 'Noto Naskh Arabic', serif;
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--red-dark);
   }
 
   .card .translation{
     margin-top: 6px;
-    font-size: 16.5px;
+    font-size: 17px;
     color: var(--ink);
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .card .definition{
     margin-top: 8px;
-    font-size: 14.5px;
+    font-size: 15px;
     line-height: 1.9;
     color: var(--ink-soft);
+    font-weight: 400;
   }
 
   .synonyms{
@@ -231,9 +236,10 @@
   }
 
   .synonyms .label{
-    font-size: 12px;
+    font-size: 12.5px;
     color: var(--ink-faint);
     margin-left: 4px;
+    font-weight: 500;
   }
 
   .chip{
@@ -243,6 +249,7 @@
     padding: 4px 10px;
     border-radius: 999px;
     border: 1px solid var(--line);
+    font-weight: 500;
   }
 
   /* ---------- EMPTY / IDLE STATES ---------- */
@@ -253,14 +260,15 @@
   }
 
   .state svg{ width:64px; height:64px; opacity:.5; margin-bottom:14px; }
-  .state p{ font-size: 14.5px; line-height: 1.8; margin:0; }
-  .state strong{ color: var(--ink-soft); }
+  .state p{ font-size: 15px; line-height: 1.8; margin:0; font-weight: 400; }
+  .state strong{ color: var(--ink-soft); font-weight: 700; }
 
   footer{
     text-align:center;
     margin-top: 30px;
-    font-size: 11.5px;
+    font-size: 12px;
     color: var(--ink-faint);
+    font-weight: 400;
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -281,7 +289,7 @@
         <path d="M28 20L30.5 23.5L28 25L25 23L28 20Z" fill="#F1E6CE"/>
         <circle cx="38" cy="12" r="5" fill="var(--gold)"/>
       </svg>
-      <h1>فەرهەنگی کوردی</h1>
+      <h1>هەنبانەبۆرینه</h1>
     </div>
     <p class="brand-sub">KURDISH · PERSIAN DICTIONARY</p>
 
